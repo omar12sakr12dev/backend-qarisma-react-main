@@ -1,0 +1,9 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+application.properties_backup
+.env
+.idea/
+*.iml
+.DS_Store
+.vscode/
+.factorypath

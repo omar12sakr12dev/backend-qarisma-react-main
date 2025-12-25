@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: qarisma-api
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:mem:qarismadb}
+    username: ${SPRING_DATASOURCE_USERNAME:sa}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER_CLASS_NAME:org.h2.Driver}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: ${HIBERNATE_DIALECT:org.hibernate.dialect.H2Dialect}
+  h2:
+    console:
+      enabled: true
+
+jwt:
+  secret: ${JWT_SECRET:404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970}
+  expiration: 86400000 # 24 hours
+
+security:
+  rate-limit: 10
+  lockout-duration: 15 # minutes
+  max-attempts: 5
+  cookie:
+    name: access_token
+    secure: false # set to true in production with HTTPS
+    http-only: true
+
+server:
+  port: ${PORT:8080}
+  error:
+    include-message: always
